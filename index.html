@@ -22,9 +22,9 @@
             });
 
             // closes an element
-            function close(el){
+            function closeElement(el = "nothing"){
                 console.log("closing " + el);
-                el.delete();
+                el.remove();
             }
             function addPlayer(){
                 let sel = document.getElementById("mainMenuPlayerList");
@@ -37,7 +37,12 @@
                 inp.value = "Player " + pCounter;// (document.getElementsByClassName("mainMenuPlayerBar").length); // cast for safety
                 let butt = document.createElement("button");
                 butt.className = "x-button";
-                butt.onclick = "close(this.parentElement)";
+                butt.onclick = "closeElement(this.parentElement)";
+                let imgButt = document.createElement("image");
+                imgButt.setAttribute("style","width:25px;height:25px;");
+                imgButt.setAttribute("src", "imgs/close-2-icon.png");
+                imgButt.className = "ximg";
+                butt.appendChild(imgButt);
                 bar.appendChild(inp);
                 bar.appendChild(butt);
                 sel.appendChild(bar);
@@ -85,11 +90,15 @@
                 <div id="mainMenuPlayerList">
                     <div class="mainMenuPlayerBar">
                         <input class="playerNameInputBox" type="text" placeholder="Type Player Name Here..." value = "Bob Ross">
-                        <button class="x-button" onclick="close(this.parentElement)"></button>
+                        <button class="x-button" onclick="closeElement(this.parentElement)">
+                            <image class="ximg" src = "imgs/close-2-icon.png" alt = "X" style="width:25px;height:25px;"></image>
+                        </button>
                     </div>
                 </div>
                 <div class="mainMenuPlayerBar" id="addNewPlayer">
-                    <button onclick="addPlayer()">Add Player</button>
+                    <button onclick="addPlayer()">
+                        <a>Add Player</a>
+                    </button>
                 </div>
             </div>
         </div>
