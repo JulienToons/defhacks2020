@@ -196,6 +196,7 @@ ul {
   width:100%;
   height:50%;
   background-color: chartreuse;
+  /*background-image: "public/imgs/videoBackground.jpg";*/
 }
 .tallyContainer {
   position: relative;
