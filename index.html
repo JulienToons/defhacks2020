@@ -24,7 +24,11 @@
             // closes an element
             function closeElement(el = "nothing"){
                 console.log("closing " + el);
-                el.remove();
+                try{
+                    el.remove();
+                } catch(e){
+
+                }
             }
             function addPlayer(){
                 let sel = document.getElementById("mainMenuPlayerList");
@@ -55,11 +59,13 @@
                 // retrieve player list
                 let list = [];
                 let collection = document.getElementById("mainMenuPlayerList");
-                /*while (collection.firstChild) {
-                    list.push(collection.firstChild.value)
-                }*/
+                for (i=0;i<collection.children.length;i++) {
+                    if(collection.children[i].className = "mainMenuPlayerBar"){
+                        list.push(collection.children[i].children[0].value);
+                    }
+                }
 
-                console.log("Yellow")
+                console.log(list)
                 document.getElementById('title').innerHTML = "none";
                 // hide main menu
                 document.getElementById("main_menu").style.display = "none";
