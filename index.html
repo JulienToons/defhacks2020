@@ -5,15 +5,50 @@
         <link href="styles.css" rel="stylesheet" type="">
         <script type="text/javascript">
             console.log("This is a visual representaion of add on, a game similar to simon, played often Gymnasts");
+            var pCounter = 1;
+            // load .js files
+            let sources = []; //["main","server"];
+            for (let index = 0; index < sources.length; index ++) {
+                let script = document.createElement("script");
+                script.setAttribute("type", "text/javascript");
+                script.setAttribute("src", String(sources[index] + ".js"));
+                document.head.appendChild(script);
+            }
 
+            // to ensure that the game scene is hidden right after the page is loaded
             window.addEventListener("load", function(event) {
 
                 document.getElementById("game_scene").style.display = "none";
             });
 
-            function close(el){
-                el.delete();
+            // closes an element
+            function closeElement(el = "nothing"){
+                console.log("closing " + el);
+                el.remove();
             }
+            function addPlayer(){
+                let sel = document.getElementById("mainMenuPlayerList");
+                let bar = document.createElement("div");
+                bar.className = "mainMenuPlayerBar";
+                let inp = document.createElement("input");
+                inp.className = "playerNameInputBox";
+                inp.type = "text";
+                pCounter++;
+                inp.value = "Bob Ross the " + pCounter + "th";// (document.getElementsByClassName("mainMenuPlayerBar").length); // cast for safety
+                let butt = document.createElement("button");
+                butt.className = "x-button";
+                butt.onclick = "closeElement(this.parentElement)";
+                let imgButt = document.createElement("img");
+                imgButt.setAttribute("style","width:25px;height:25px;");
+                imgButt.setAttribute("src", "imgs/close-2-icon.png");
+                imgButt.className = "ximg";
+                butt.appendChild(imgButt);
+                bar.appendChild(inp);
+                bar.appendChild(butt);
+                sel.appendChild(bar);
+                console.log("player added");
+            }
+            // game function: switch scenes and call main.js's start function
             function play(){
 
                 console.log("Play function");
@@ -32,8 +67,18 @@
                 // reveal game scene
                 document.getElementById("game_scene").style.display = "block";
 
-                // initialize game files with list[] as a parameter
+                // initialize game files with list[] as a parameter   
+            }
+
+
+            function videoButtons(){
+                alert("Button");
                 
+                // record button disappears
+                document.getElementsByClassName("record_button")[0].style.display = "none";
+
+                // stop button appears
+                document.getElementsByClassName("stop_button")[0].style.display = "block";
             }
         </script>
     </head>
@@ -44,16 +89,16 @@
             <div id="playerSelect">
                 <div id="mainMenuPlayerList">
                     <div class="mainMenuPlayerBar">
-                        <input class="playerNameInputBox" type="text">
-                        <button class="x-button" onClick="close(this.parentElement)">Enter</button>
-                    </div>
-                    <div class="mainMenuPlayerBar">
-                        <input class="playerNameInputBox" type="text">
-                        <button class="x-button" onClick="close(this.parentElement)">Enter</button>
+                        <input class="playerNameInputBox" type="text" placeholder="Type Player Name Here..." value = "Bob Ross">
+                        <button class="x-button" onclick="closeElement(this.parentElement)">
+                            <image class="ximg" src = "imgs/close-2-icon.png" alt = "X" style="width:25px;height:25px;"></image>
+                        </button>
                     </div>
                 </div>
                 <div class="mainMenuPlayerBar" id="addNewPlayer">
-                    <a>Add Player</a>
+                    <button onclick="addPlayer()">
+                        <a>Add Player</a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -71,13 +116,20 @@
             </div>
             <div id="tallyContainer">
                 <div class="playerProfile" id="nameProfileContainer">
-                    <progress value="1" max="3"></progress> <!-- Lives (3, 2 ,1, 0) -->
+                    <img src="imgs/hacker-icon.svg">
                     <a class="playerName">name</a>
                 </div>
             </div>
             <div id="miscContainer">
                 <!-- record new move -->
                 <!-- previous moves que list w. pics maybe -->
+            </div>
+
+            <div id="video_buttons">
+                <button id="record" onclick="videoButtons()"><img class="record_button" src="imgs/record.png"></button>
+
+                <button><img class="fast_fwd_button" src="imgs/fast_fwd.png"></button>
+                <button id="stop" display="none"><img class="stop_button" src="imgs/stop.png"></button>
             </div>
         </div>
     </body>
