@@ -94,7 +94,6 @@ input[type=text]:focus {
 
 .x-button{
   background-image: "imgs/close-2-icon.png";
-  background-color:red;
   display: block;
   margin-left:65%;
   top:-25px;
