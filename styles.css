@@ -83,7 +83,7 @@ html, body{
   display:block;
   font-size:15px;
   padding:3px;
-  width: 60%;
+  width: 80%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 input[type=text]:focus {
@@ -93,12 +93,15 @@ input[type=text]:focus {
 .x-button{
   background-image: "imgs/close-2-icon.png";
   background-color: red;
-  display: inline-block;
+  display: block;
   margin-left:65%;
   top:-25px;
+  float:right;
+  margin-right:0;
+  margin-bottom: 0;
   position:relative;
   left:-15px;
-  width:50px;
+  width:25px;
   height:25px;
   
 }
