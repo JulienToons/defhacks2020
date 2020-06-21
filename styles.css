@@ -185,7 +185,19 @@ background-color: #123;
   font-size: 1em;
 }
 
-
 #miscContainer{
   display: none;
 }
+
+.record_button {
+  height:50px;
+  width:50px;
+  position:relative;
+  left:-355px;
+  top:-140px;
+}
+
+
+
+
+
