@@ -28,8 +28,8 @@ html, body{
   height:auto;
 }
 #title{
-  font-size: 120px;
-  margin-top: 70px;
+  font-size: 180px;
+  margin-top: 40px;
   margin-left:auto;
   margin-right:auto;
   float: none;
@@ -43,6 +43,7 @@ html, body{
   display: grid;
   position: relative;
   margin-top: 20px;
+  margin-bottom: 6px;
   padding: 5px 10px;
   border-radius: 10px;
   background-color: rgb(106, 235, 138);
@@ -54,6 +55,19 @@ html, body{
   display: inline-block;
   font-size: 36px;
 }
+#playButton:hover{
+  margin-top: 18px;
+  padding:8px 13px;
+  margin-bottom: 0px;
+  font-size: 38px;
+}
+#playButton:active{
+  margin-top: 23px;
+  margin-bottom: 8px;
+  padding: 4px 9px;
+  font-size: 34px;
+}
+
 #playerSelect{
   margin-top: 10px;
   margin-left:auto;
@@ -106,18 +120,29 @@ input[type=text]:focus {
   height:auto;
   
 }
-.x-button image{
-
+.ximg{
+  filter: brightness(100%);
   width:10%;
   height:10%;
 }
-
+.ximg:hover{
+  filter:brightness(120%);
+}
+.ximg:active{
+  filter:brightness(80%);
+}
 #addNewPlayer{
   width:auto;
   height: 6vh;
   margin-top: 5px;
   text-align: center;
   padding:0px;
+}
+#addNewPlayer:hover{
+  background-color: #ba9;
+}
+#addNewPlayer:active{
+  background-color: #89a;
 }
 #addNewPlayer Button{
   width:100%;
