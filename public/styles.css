@@ -225,12 +225,13 @@ background-color: #123;
   display: none;
 }
 #video_buttons {
-  position:relative;
+  position:center;
+  float:top;
   width:50%;
   height:50%;
   left:0px;
   top:0px;
-  z-index: 1;
+  
 }
 .record_button {
   padding:5px;
@@ -247,8 +248,9 @@ background-color: #123;
   position:relative;
   width:20%;
   height:20%;
-  left:570px;
-  top:-180px;
+  left:50%;
+  top:50%;
+  z-index: 1;
 
 }
 .record_button {
