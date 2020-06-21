@@ -45,10 +45,10 @@
                 }
             }
             function addPlayer(){
-                if(pCounter>6){
+                /*if(pCounter>6){
                     alert("7 players is a lot for addon. Maybe you could try playing with smaller groups?");
                     return 1;
-                }
+                }*/
                 let sel = document.getElementById("mainMenuPlayerList");
                 let bar = document.createElement("div");
                 bar.className = "mainMenuPlayerBar";
@@ -60,6 +60,7 @@
                 inp.value = "Bob Ross the " + pCounter + "th";// (document.getElementsByClassName("mainMenuPlayerBar").length); // cast for safety
                 let butt = document.createElement("button");
                 butt.className = "x-button";
+
                 let imgButt = document.createElement("img");
                 imgButt.setAttribute("style","width:25px;height:25px;");
                 imgButt.setAttribute("src", "public/imgs/close-2-icon.png");
@@ -69,9 +70,9 @@
                 bar.appendChild(butt);
                 sel.appendChild(bar);
                 console.log("player added");
+                
+                butt.addEventListener('click', function(){ closeElement(this.parentElement)});
 
-                butt.onclick = "console.log(1)";
-                butt.onclick = "closeElement(this.parentElement)";
             }
             // game function: switch scenes and call main.js's start function
             function play(){
