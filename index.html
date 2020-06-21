@@ -27,15 +27,13 @@
                 console.log("closing " + el);
                 try{
                     el.remove();
-                } catch(e){
-
-                }
+                } catch(e){}
             }
             function addPlayer(){
-                if(pCounter>6){
+                /*if(pCounter>6){
                     alert("7 players is a lot for addon. Maybe you could try playing with smaller groups?");
                     return 1;
-                }
+                }*/
                 let sel = document.getElementById("mainMenuPlayerList");
                 let bar = document.createElement("div");
                 bar.className = "mainMenuPlayerBar";
@@ -48,8 +46,6 @@
                 let butt = document.createElement("button");
                 butt.className = "x-button";
 
-                butt.onclick = "closeElement(this.parentElement)";
-
                 let imgButt = document.createElement("img");
                 imgButt.setAttribute("style","width:25px;height:25px;");
                 imgButt.setAttribute("src", "public/imgs/close-2-icon.png");
@@ -59,12 +55,8 @@
                 bar.appendChild(butt);
                 sel.appendChild(bar);
                 console.log("player added");
-
-                butt.onclick = closeElement(this.parentelElement);
-
                 
-                butt.onclick = "console.log(1)";
-                butt.onclick = "closeElement(this.parentElement)";
+                butt.addEventListener('click', function(){ closeElement(this.parentElement)});
 
             }
             // game function: switch scenes and call main.js's start function
