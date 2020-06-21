@@ -92,15 +92,6 @@
             }
 
 
-            function videoButtons(){
-                //alert("Button");
-                
-                // record button disappears
-                document.getElementsByClassName("record_button")[0].style.display = "none";
-
-                // stop button appears
-                document.getElementsByClassName("stop_button")[0].style.display = "block";
-            }
         </script>
     </head>
     <body>
@@ -149,10 +140,7 @@
             <div id="video_buttons">
                 <button id="record" onclick="videoButtons()"><img class="record_button" src="public/imgs/record.png"></button>
 
-                <button><img class="fast_fwd_button" src="imgs/fast_fwd.png"></button>
-                <button id="stop" display="none"><img class="stop_button" src="imgs/stop.png"></button>
-
-                <img class="fast_fwd_button" src="public/imgs/fast_fwd.png">
+                <button><img class="fast_fwd_button" src="public/imgs/fast_fwd.png"></button>
                 <button id="stop" display="none"><img class="stop_button" src="public/imgs/stop.png"></button>
 
             </div>
