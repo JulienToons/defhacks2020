@@ -17,11 +17,11 @@ html, body{
 
 @font-face {
   font-family: "Bombing";
-  src: url("fonts/Bombing.ttf");
+  src: url("public/fonts/Bombing.ttf");
 }
 @font-face {
   font-family: "Cartoon3D";
-  src: url("fonts/From\ Cartoon\ Blocks.ttf");
+  src: url("public/fonts/From\ Cartoon\ Blocks.ttf");
 }
 
 #main_menu{
@@ -224,7 +224,25 @@ background-color: #123;
 #miscContainer{
   display: none;
 }
+#video_buttons {
+  position:relative;
+  width:50%;
+  height:50%;
+  left:0px;
+  top:0px;
+  z-index: 1;
+}
+.record_button {
+  padding:5px;
+  cursor:pointer;
+  height:50px;
+  width:50px;
 
+  position:relative;
+  left:-25px;
+  top:-25px;
+}
+/*
 #video_buttons {
   position:relative;
   width:20%;
@@ -286,3 +304,4 @@ background-color: #123;
   transform: translateY(4px);
   box-shadow:0 5px #666;
 }
+*/
