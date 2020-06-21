@@ -155,9 +155,6 @@ input[type=text]:focus {
 }
 
 
-
-
-
 #game_scene {
   margin:0;
   float: top left;
@@ -242,9 +239,10 @@ background-color: #123;
   cursor:pointer;
   height:50px;
   width:50px;
+
   position:relative;
-  left:100px;
-  top:-300px;
+  left:150px;
+  top:-220px;
 }
 .record_button:hover {
   background-color: red;
@@ -261,8 +259,8 @@ background-color: #123;
   height:50px;
   width:50px;
   position:relative;
-  left:-100px;
-  top:-300px;
+  left:-30px;
+  top:-220px;
 }
 .stop_button:hover {
   background-color:grey;
@@ -273,4 +271,18 @@ background-color: #123;
   box-shadow:0 5px #666;
 }
 
+.fast_fwd_button {
+  width:50px;
+  height:50px;
+  position:relative;
+  top:-220px;
+  left:-20px;
+}
+.fast_fwd_button:hover {
+  background-color:red;
+  border-radius:50%;
+}
+.fast_fwd_button:active {
+  transform: translateY(4px);
 
+}
