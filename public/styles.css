@@ -227,13 +227,11 @@ background-color: #123;
   display: none;
 }
 #video_buttons {
-
   position:center;
   float:top;
-
   width: 100px;
   height: 100px;
-  background-color: red;
+
   
   position: absolute;
   top:0;
@@ -251,8 +249,7 @@ background-color: #123;
   width:50px;
 
   position:relative;
-  left:-25px;
-  top:-25px;
+  top:10px;
 }
 
 .record_button:hover {
@@ -270,8 +267,8 @@ background-color: #123;
   height:50px;
   width:50px;
   position:relative;
-  left:10px;
-  top:-250px;
+  left:65px;
+  top:-110px;
 }
 .stop_button:hover {
   background-color:red;
@@ -286,8 +283,8 @@ background-color: #123;
   width:50px;
   height:50px;
   position:relative;
-  top:-250px;
-  left:-50px;
+  top:-50px;
+  left:-60px;
 }
 .fast_fwd_button:hover {
   background-color:red;
