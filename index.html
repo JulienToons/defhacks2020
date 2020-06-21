@@ -6,17 +6,26 @@
         <script type="text/javascript">
             console.log("This is a visual representaion of add on, a game similar to simon, played often Gymnasts");
 
+            window.addEventListener("load", function(event) {
+
+                document.getElementById("game_scene").style.display = "none";
+            });
+
             function close(el){
                 el.delete();
             }
             function play(){
+
+                console.log("Play function");
                 // retrieve player list
                 let list = [];
                 let collection = document.getElementById("mainMenuPlayerList");
-                while (myNode.firstChild) {
+                /*while (collection.firstChild) {
                     list.push(collection.firstChild.value)
-                }
+                }*/
 
+                console.log("Yellow")
+                document.getElementById('title').innerHTML = "none";
                 // hide main menu
                 document.getElementById("main_menu").style.display = "none";
 
@@ -31,12 +40,16 @@
     <body>
         <div id="main_menu">
             <a id="title">ADD ON</a>
-            <button id="playButton" onClick="play()">Play</button>
+            <button id="playButton" onclick="play()">Play</button>
             <div id="playerSelect">
                 <div id="mainMenuPlayerList">
                     <div class="mainMenuPlayerBar">
                         <input class="playerNameInputBox" type="text">
-                        <button class="x-button" onClick="close(this.parentElement)">
+                        <button class="x-button" onClick="close(this.parentElement)">Enter</button>
+                    </div>
+                    <div class="mainMenuPlayerBar">
+                        <input class="playerNameInputBox" type="text">
+                        <button class="x-button" onClick="close(this.parentElement)">Enter</button>
                     </div>
                 </div>
                 <div class="mainMenuPlayerBar" id="addNewPlayer">
@@ -49,9 +62,12 @@
                 <!-- TODO -->
             </div>
             <div id="queList">
-                <a class="skillQue">Skill #1</a>
-                <a class="skillQue">Skill #2</a>
-                <a class="skillQue">Skill #3</a>
+                <ul>
+                    <li class="skillQue">Skill #1</li>
+                    <li class="skillQue">Skill #2</li>
+                    <li class="skillQue">Skill #3</li>
+                </ul>
+                
             </div>
             <div id="tallyContainer">
                 <div class="playerProfile" id="nameProfileContainer">
