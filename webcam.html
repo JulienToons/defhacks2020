@@ -1,125 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Display Webcam Stream</title>
+    <head>
+        <meta charset="utf-8">
+        <title>Audio/Video Example - Record Plugin for Video.js</title>
 
-<style>
-#container {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 10px #333 solid;
-}
-#videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-}
-</style>
-</head>
+        <!-- Include Video.js stylesheet (https://videojs.com/) -->
+        <link href="../node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
 
-<body>
-<div id="container">
-	<video autoplay="true" id="videoElement">
+        <!-- Style of VideoJS -->
+        <link href="../dist/css/videojs.record.css" rel="stylesheet">
 
-	</video>
-</div>
-<div class="right">
-	<div id="stopButton" class="button">
-		Stop
-	</div>
-	<h2>Recording</h2>
-	<video id="recording" width="160" height="120" controls></video>
-	<a id="downloadButton" class="button">
-		Download
-	</a>
-</div>
-<script>
-let preview = document.getElementById("preview");
-let recording = document.getElementById("recording");
-let startButton = document.getElementById("startButton");
-let stopButton = document.getElementById("stopButton");
-let downloadButton = document.getElementById("downloadButton");
-let logElement = document.getElementById("log");
+        <style>
+        /* change player background color */
+        #myVid {
+            background-color: #9ab87a;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Create the preview video element -->
+        <video id="myVideo" class="video-js vjs-default-skin"></video>
 
-let recordingTimeMS = 5000;
-function log(msg) {
-logElement.innerHTML += msg + "\n";
-}
-function wait(delayInMS) {
-return new Promise(resolve => setTimeout(resolve, delayInMS));
-}
-function startRecording(stream, lengthInMS) {
-let recorder = new MediaRecorder(stream);
-let data = [];
+        <!-- Load video.js -->
+        <script src="../node_modules/video.js/dist/video.min.js"></script>
 
-recorder.ondataavailable = event => data.push(event.data);
-recorder.start();
-log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+        <!-- Load RecordRTC core and adapter -->
+        <script src="../node_modules/recordrtc/RecordRTC.js"></script>
+        <script src="../node_modules/webrtc-adapter/out/adapter.js"></script>
 
-let stopped = new Promise((resolve, reject) => {
-	recorder.onstop = resolve;
-	recorder.onerror = event => reject(event.name);
-});
+        <!-- Load VideoJS Record Extension -->
+        <script src="../dist/videojs.record.js"></script>
+        <script>
+        var videoMaxLengthInSeconds = 120;
 
-let recorded = wait(lengthInMS).then(
-	() => recorder.state == "recording" && recorder.stop()
-);
+        // Inialize the video player
+        var player = videojs("myVideo", {
+            controls: true,
+            width: 720,
+            height: 480,
+            fluid: false,
+            plugins: {
+                record: {
+                    audio: true,
+                    video: true,
+                    maxLength: videoMaxLengthInSeconds,
+                    debug: true,
+                    videoMimeType: "video/webm;codecs=H264"
+                }
+            }
+        }, function(){
+            // print version information at startup
+            videojs.log(
+                'Using video.js', videojs.VERSION,
+                'with videojs-record', videojs.getPluginVersion('record'),
+                'and recordrtc', RecordRTC.version
+            );
+        });
 
-return Promise.all([
-	stopped,
-	recorded
-])
-.then(() => data);
-}
+        // error handling for getUserMedia
+        player.on('deviceError', function() {
+            console.log('device error:', player.deviceErrorCode);
+        });
 
-function stop(stream) {
-stream.getTracks().forEach(track => track.stop());
-}
+        // Handle error events of the video player
+        player.on('error', function(error) {
+            console.log('error:', error);
+        });
 
-startButton.addEventListener("click", function() {
-navigator.mediaDevices.getUserMedia({
-	video: true,
-	audio: true
-}).then(stream => {
-	preview.srcObject = stream;
-	downloadButton.href = stream;
-	preview.captureStream = preview.captureStream || preview.mozCaptureStream;
-	return new Promise(resolve => preview.onplaying = resolve);
-}).then(() => startRecording(preview.captureStream(), recordingTimeMS))
-.then (recordedChunks => {
-	let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
-	recording.src = URL.createObjectURL(recordedBlob);
-	downloadButton.href = recording.src;
-	downloadButton.download = "RecordedVideo.webm";
+        // user clicked the record button and started recording !
+        player.on('startRecord', function() {
+            console.log('started recording! Do whatever you need to');
+        });
 
-	log("Successfully recorded " + recordedBlob.size + " bytes of " +
-			recordedBlob.type + " media.");
-})
-.catch(log);
-}, false);
+        // user completed recording and stream is available
+        // Upload the Blob to your server or download it locally !
+        player.on('finishRecord', function() {
 
-stopButton.addEventListener("click", function() {
-stop(preview.srcObject);
-}, false);
-}
-</script>
-</body>
-</html>
+            // the blob object contains the recorded data that
+            // can be downloaded by the user, stored on server etc.
+            var videoBlob = player.recordedData.video;
 
-<script>
-  var video = document.querySelector("#videoElement");
-
-  if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(function (stream) {
-        video.srcObject = stream;
-      })
-      .catch(function (err0r) {
-        console.log("Something went wrong!");
-      });
-  }
-</script>
-</body>
+            console.log('finished recording: ', videoBlob);
+        });
+        </script>
+    </body>
 </html>
