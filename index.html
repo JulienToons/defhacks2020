@@ -38,6 +38,10 @@
                 let butt = document.createElement("button");
                 butt.className = "x-button";
                 butt.onclick = "close(this.parentElement)";
+                let imgButt = document.createElement("image");
+                imgButt.style = "width:25px;height:25px;";
+                imgButt.setAttribute("src", "imgs/close-2-icon.png");
+                butt.appendChild(imgButt);
                 bar.appendChild(inp);
                 bar.appendChild(butt);
                 sel.appendChild(bar);
@@ -75,11 +79,15 @@
                 <div id="mainMenuPlayerList">
                     <div class="mainMenuPlayerBar">
                         <input class="playerNameInputBox" type="text" placeholder="Type Player Name Here..." value = "Bob Ross">
-                        <button class="x-button" onclick="close(this.parentElement)"></button>
+                        <button class="x-button" onclick="close(this.parentElement)">
+                            <image src = "imgs/close-2-icon.png" alt = "X" style="width:25px;height:25px;"></image>
+                        </button>
                     </div>
                 </div>
                 <div class="mainMenuPlayerBar" id="addNewPlayer">
-                    <button onclick="addPlayer()">Add Player</button>
+                    <button onclick="addPlayer()">
+                        <a>Add Player</a>
+                    </button>
                 </div>
             </div>
         </div>
