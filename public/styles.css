@@ -165,25 +165,27 @@ input[type=text]:focus {
   position:relative;
   background-color: orange;
 }
-
+ul {
+  list-style: none;
+}
 #queList {
   width:50%;
   height:50%;
   float: left;
-  background-color: green;
+  background-image: linear-gradient(30deg, rgb(46, 61, 77), rgb(8, 145, 155));
   margin:0;
   display: block;
   overflow: hidden;
 }
 .skillQue {
-  background: #123;
+  background-image:linear-gradient(30deg,#012,#234);
   float: left;
   position:relative;
-  top:250px;
-  padding: 10px;
-  margin-left: 35px;
-  width:97%;
-  margin:0;
+  top:5px;
+  padding: 2%;
+  margin-left: 3%;
+  margin-top: 1%;
+  width:90%;
   height:50%;
   border: 2px #ffa solid;
   color:#ffa;
