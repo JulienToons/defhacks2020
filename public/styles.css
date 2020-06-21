@@ -198,7 +198,6 @@ ul {
   background-color: chartreuse;
 }
 .tallyContainer {
-  display: block;
   position: relative;
   background-color: red;
   top:40%;
@@ -206,6 +205,7 @@ ul {
   width:40%;
   height: 40%;
   overflow: scroll;
+  z-index: 1;
 }
 .playerProfile{
 background-color: #123;
