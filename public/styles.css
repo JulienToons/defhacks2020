@@ -107,7 +107,7 @@ input[type=text]:focus {
 }
 
 .x-button{
-  background-image: "imgs/close-2-icon.png";
+  background-image: "public/imgs/close-2-icon.png";
   display: block;
   margin-left:65%;
   top:-25px;
