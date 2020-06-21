@@ -165,25 +165,27 @@ input[type=text]:focus {
   position:relative;
   background-color: orange;
 }
-
+ul {
+  list-style: none;
+}
 #queList {
   width:50%;
   height:50%;
   float: left;
-  background-color: green;
+  background-image: linear-gradient(30deg, rgb(46, 61, 77), rgb(8, 145, 155));
   margin:0;
   display: block;
   overflow: hidden;
 }
 .skillQue {
-  background: #123;
+  background-image:linear-gradient(30deg,#012,#234);
   float: left;
   position:relative;
-  top:250px;
-  padding: 10px;
-  margin-left: 35px;
-  width:97%;
-  margin:0;
+  top:5px;
+  padding: 2%;
+  margin-left: 3%;
+  margin-top: 1%;
+  width:90%;
   height:50%;
   border: 2px #ffa solid;
   color:#ffa;
@@ -196,7 +198,6 @@ input[type=text]:focus {
   background-color: chartreuse;
 }
 .tallyContainer {
-  display: block;
   position: relative;
   background-color: red;
   top:40%;
@@ -204,6 +205,7 @@ input[type=text]:focus {
   width:40%;
   height: 40%;
   overflow: scroll;
+  z-index: 1;
 }
 .playerProfile{
 background-color: #123;
@@ -225,14 +227,23 @@ background-color: #123;
   display: none;
 }
 #video_buttons {
+
   position:center;
   float:top;
-  width:50%;
-  height:50%;
-  left:0px;
-  top:0px;
+
+  width: 100px;
+  height: 100px;
+  background-color: red;
   
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+    
+  margin: auto;
 }
+
 .record_button {
   padding:5px;
   cursor:pointer;
@@ -244,26 +255,6 @@ background-color: #123;
   top:-25px;
 }
 
-#video_buttons {
-  position:relative;
-  width:20%;
-  height:20%;
-  left:50%;
-  top:50%;
-  z-index: 1;
-
-}
-.record_button {
-  display: inline-block;
-  padding: 5px 5px;
-  cursor:pointer;
-  height:50px;
-  width:50px;
-
-  position:relative;
-  left:65px;
-  top:-250px;
-}
 .record_button:hover {
   background-color: red;
   border-radius:50%;
