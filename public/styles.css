@@ -242,7 +242,7 @@ background-color: #123;
   margin: auto;
 }
 
-.record_button {
+.record_button, .fast_fwd_button, .stop_button{
   padding:5px;
   cursor:pointer;
   height:50px;
@@ -252,49 +252,24 @@ background-color: #123;
   top:10px;
 }
 
-.record_button:hover {
-  background-color: red;
+.record_button:hover , .stop_button:hover,.fast_fwd_button:hover{
+  background-color: rgba(253,0,0,.6);
   border-radius:50%;
 }
-.record_button:active {
+.record_button:active,.stop_button:active,.fast_fwd_button:active {
   transform: translateY(4px);
-  box-shadow: 0 5px #666;
+  box-shadow: 0 5px rgba(102,102,102,.6);
 }
 
 .stop_button {
-  display: block;
-  padding:5px 5px;
-  height:50px;
-  width:50px;
-  position:relative;
-  left:65px;
-  top:-110px;
-}
-.stop_button:hover {
-  background-color:red;
-  border-radius:50%;
-}
-.stop_button:active {
-  transform: translateY(4px);
-  box-shadow:0 5px #666;
+  top:-137px;
+  left:60px;
 }
 
 .fast_fwd_button {
-  width:50px;
-  height:50px;
-  position:relative;
-  top:-50px;
+  top:-63px;
   left:-60px;
 }
-.fast_fwd_button:hover {
-  background-color:red;
-  border-radius:50%;
-}
-.fast_fwd_button:active {
-  transform: translateY(4px);
-  box-shadow:0 5px #666;
-}
-
 .video{
   vertical-align: top;
   --width: 25vw;
