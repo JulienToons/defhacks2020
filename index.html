@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="style.css" rel="stylesheet" type="">
+        <title>ADD ON</title>
+        <link href="styles.css" rel="stylesheet" type="">
+        <script type="text/javascript">
+            console.log("This is a visual representaion of add on, a game similar to simon, played often Gymnasts");
+
+            function close(el){
+                el.delete();
+            }
+            function play(){
+                // retrieve player list
+                let list = [];
+                let collection = document.getElementById("mainMenuPlayerList");
+                while (myNode.firstChild) {
+                    list.push(collection.firstChild.value)
+                }
+
+                // hide main menu
+                document.getElementById("main_menu").style.display = "none";
+
+                // reveal game scene
+                document.getElementById("game_scene").style.display = "block";
+
+                // initialize game files with list[] as a parameter
+                
+            }
+        </script>
     </head>
     <body>
-        <p> p </p>
+        <div id="main_menu">
+            <a id="title">ADD ON</a>
+            <button id="playButton" onClick="play()">Play</button>
+            <div id="playerSelect">
+                <div id="mainMenuPlayerList">
+                    <div class="mainMenuPlayerBar">
+                        <input class="playerNameInputBox" type="text">
+                        <button class="x-button" onClick="close(this.parentElement)">
+                    </div>
+                </div>
+                <div class="mainMenuPlayerBar" id="addNewPlayer">
+                    <a>Add Player</a>
+                </div>
+            </div>
+        </div>
+        <div id="game_scene" display="none">
+            <div id="videoContainer">
+                <!-- TODO -->
+            </div>
+            <div id="queList">
+                <a class="skillQue">Skill #1</a>
+                <a class="skillQue">Skill #2</a>
+                <a class="skillQue">Skill #3</a>
+            </div>
+            <div id="tallyContainer">
+                <div class="playerProfile" id="nameProfileContainer">
+                    <progress value="1" max="3"></progress> <!-- Lives (3, 2 ,1, 0) -->
+                    <a class="playerName">name</a>
+                </div>
+            </div>
+            <div id="miscContainer">
+                <!-- record new move -->
+                <!-- previous moves que list w. pics maybe -->
+            </div>
+        </div>
     </body>
 </html>
