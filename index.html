@@ -6,14 +6,27 @@
         <script type="text/javascript">
             console.log("This is a visual representaion of add on, a game similar to simon, played often Gymnasts");
 
+            // load .js files
+            let sources = []; //["main","server"];
+            for (let index = 0; index < sources.length; index ++) {
+                let script = document.createElement("script");
+                script.setAttribute("type", "text/javascript");
+                script.setAttribute("src", String(sources[index] + ".js"));
+                document.head.appendChild(script);
+            }
+
+            // to ensure that the game scene is hidden right after the page is loaded
             window.addEventListener("load", function(event) {
 
                 document.getElementById("game_scene").style.display = "none";
             });
 
+            // closes an element
             function close(el){
                 el.delete();
             }
+
+            // game function: switch scenes and call main.js's start function
             function play(){
 
                 console.log("Play function");
@@ -71,7 +84,7 @@
             </div>
             <div id="tallyContainer">
                 <div class="playerProfile" id="nameProfileContainer">
-                    <progress value="1" max="3"></progress> <!-- Lives (3, 2 ,1, 0) -->
+                    <img src="imgs/hacker-icon.svg">
                     <a class="playerName">name</a>
                 </div>
             </div>

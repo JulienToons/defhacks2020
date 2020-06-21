@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
 html, body{ 
   margin: 0 auto;
 	height:100%; 
@@ -5,8 +14,19 @@ html, body{
   background-color: azure;
   text-align: center;
 }
+
+@font-face {
+  font-family: "Bombing";
+  src: url("fonts/Bombing.ttf");
+}
+@font-face {
+  font-family: "Cartoon3D";
+  src: url("fonts/From\ Cartoon\ Blocks.ttf");
+}
+
+
 #title{
-  font-size: 80px;
+  font-size: 120px;
   margin-top: 10px;
   margin-left:auto;
   margin-right:auto;
@@ -14,8 +34,10 @@ html, body{
   text-align: center;
   position: relative;;
   display:block;
+  font-family: Bombing,Arial, Helvetica, sans-serif;
 }
 #playButton{
+  box-shadow: 2.5px 6px 4px;
   display: grid;
   position: relative;
   margin-top: 20px;
@@ -23,11 +45,12 @@ html, body{
   border-radius: 10px;
   background-color: rgb(106, 235, 138);
   border: none;
-  color: white;
+  color: rgb(29, 73, 9);
+  font-family: Cartoon3D, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 36px;
 }
 #playerSelect{
   margin-top: 10px;
@@ -83,34 +106,75 @@ html, body{
   text-align: center;
 }
 
+
+
+
+
+
 #game_scene {
   margin:0;
+  float: top left;
+  top:0;
   width: 100%;
+  padding: 0px;
   height: 100%;
   position:relative;
-
+  background-color: orange;
 }
 
 #queList {
   width:50%;
   height:50%;
-  float: bottom left;
-}
-.tallyContainer {
-  background-color: red;
-  position:relative;
-  top:200;
+  float: left;
+  background-color: green;
+  margin:0;
+  display: block;
+  overflow: hidden;
 }
 .skillQue {
-  display:grid;
   background: cadetblue;
   float: left;
   position:relative;
-  top:500px;
-  padding: 5px;
   padding: 10px;
   margin-left: 35px;
-  width:50%;
+  width:90%;
+  margin:0;
   height:50%;
   border: 2px #cccccc solid;
+}
+#videoContainer{
+  display: block;
+  width:100%;
+  height:30%;
+  background-color: chartreuse;
+}
+.tallyContainer {
+  display: block;
+  position: relative;
+  background-color: red;
+  top:40%;
+  left: 50%;
+  width:40%;
+  height: 40%;
+  overflow: scroll;
+}
+.playerProfile{
+background-color: #123;
+}
+.playerProfile image{
+  background-color: #4af;
+  width: 1em;
+  height: 1em;
+  margin: 0px;
+}
+.playerName{
+  text-align:left;
+  display: inline-block;
+  color:#ffa;
+  font-size: 1em;
+}
+
+
+#miscContainer{
+  display: none;
 }
