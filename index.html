@@ -69,6 +69,17 @@
 
                 // initialize game files with list[] as a parameter   
             }
+
+
+            function videoButtons(){
+                alert("Button");
+                
+                // record button disappears
+                document.getElementsByClassName("record_button")[0].style.display = "none";
+
+                // stop button appears
+                document.getElementsByClassName("stop_button")[0].style.display = "block";
+            }
         </script>
     </head>
     <body>
@@ -115,9 +126,10 @@
             </div>
 
             <div id="video_buttons">
-                <img class="record_button" src="imgs/record.png">
-                <img class="fast_fwd_button" src="imgs/fast_fwd.png">
-                <img class="stop_button" src="imgs/stop.png">
+                <button id="record" onclick="videoButtons()"><img class="record_button" src="imgs/record.png"></button>
+
+                <button><img class="fast_fwd_button" src="imgs/fast_fwd.png"></button>
+                <button id="stop" display="none"><img class="stop_button" src="imgs/stop.png"></button>
             </div>
         </div>
     </body>
