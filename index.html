@@ -99,15 +99,6 @@
             }
 
 
-            function videoButtons(){
-                //alert("Button");
-
-                // record button disappears
-                document.getElementsByClassName("record_button")[0].style.display = "none";
-
-                // stop button appears
-                document.getElementsByClassName("stop_button")[0].style.display = "block";
-            }
         </script>
     </head>
     <body>
@@ -132,12 +123,8 @@
         </div>
         <div id="game_scene" display="none">
             <div id="videoContainer">
-              <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a>
-                  <span>MediaRecorder</span></h1>
 
-              <p>For more information see the MediaStream Recording API <a
-                      href="http://w3c.github.io/mediacapture-record/MediaRecorder.html"
-                      title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
+
               <video id="gum" playsinline autoplay muted></video>
               <video id="recorded" playsinline loop></video>
 
@@ -149,7 +136,6 @@
               </div>
 
               <div>
-                <h4>Media Stream Constraints options</h4>
                   <p>Echo cancellation: <input type="checkbox" id="echoCancellation"></p>
               </div>
 
