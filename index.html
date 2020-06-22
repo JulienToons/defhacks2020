@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="WebRTC code samples">
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+        <meta itemprop="description" content="Client-side WebRTC code samples">
+        <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
+        <meta itemprop="name" content="WebRTC code samples">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta id="theme-color" name="theme-color" content="#ffffff">
+        <base target="_blank">
+        <title>ADD ON</title>
+        <link href="public/styles.css" rel="stylesheet" type="">
+        <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
+        <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../../../css/main.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript">
+            console.log("This is a visual representaion of add on, a game similar to simon, played often Gymnasts");
+            var pCounter = 1;
+            // load .js files
+            let sources = []; //["main","server"];
+            for (let index = 0; index < sources.length; index ++) {
+                let script = document.createElement("script");
+                script.setAttribute("type", "text/javascript");
+                script.setAttribute("src", String(sources[index] + ".js"));
+                document.head.appendChild(script);
+            }
+
+            // to ensure that the game scene is hidden right after the page is loaded
+            window.addEventListener("load", function(event) {
+
+                document.getElementById("game_scene").style.display = "none";
+
+            });
+
+            // closes an element
+            function closeElement(el = "nothing"){
+                console.log("closing " + el);
+                try{
+                    el.remove();
+                } catch(e){
+
+                }
+            }
+            function addPlayer(){
+                /*if(pCounter>6){
+                    alert("7 players is a lot for addon. Maybe you could try playing with smaller groups?");
+                    return 1;
+                }*/
+                let sel = document.getElementById("mainMenuPlayerList");
+                let bar = document.createElement("div");
+                bar.className = "mainMenuPlayerBar";
+                let inp = document.createElement("input");
+                inp.className = "playerNameInputBox";
+                inp.type = "text";
+
+                pCounter++;
+                inp.value = "Bob Ross the " + pCounter + "th";// (document.getElementsByClassName("mainMenuPlayerBar").length); // cast for safety
+                let butt = document.createElement("button");
+                butt.className = "x-button";
+
+                let imgButt = document.createElement("img");
+                imgButt.setAttribute("style","width:25px;height:25px;");
+                imgButt.setAttribute("src", "public/imgs/close-2-icon.png");
+                imgButt.className = "ximg";
+                butt.appendChild(imgButt);
+                bar.appendChild(inp);
+                bar.appendChild(butt);
+                sel.appendChild(bar);
+                console.log("player added");
+
+                butt.addEventListener('click', function(){ closeElement(this.parentElement)});
+
+            }
+            // game function: switch scenes and call main.js's start function
+            function play(){
+
+                console.log("Play function");
+                // retrieve player list
+                let list = [];
+                let collection = document.getElementById("mainMenuPlayerList");
+                for (i=0;i<collection.children.length;i++) {
+                    if(collection.children[i].className = "mainMenuPlayerBar"){
+                        list.push(collection.children[i].children[0].value);
+                    }
+                }
+
+                console.log(list)
+                document.getElementById('title').innerHTML = "none";
+                // hide main menu
+                document.getElementById("main_menu").style.display = "none";
+
+                // reveal game scene
+                document.getElementById("game_scene").style.display = "block";
+
+                // initialize game files with list[] as a parameter
+            }
+
+
+            function videoButtons(){
+                //alert("Button");
+
+                // record button disappears
+                document.getElementsByClassName("record_button")[0].style.display = "none";
+
+                // stop button appears
+                document.getElementsByClassName("stop_button")[0].style.display = "block";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="main_menu">
+            <a id="title">ADD ON</a>
+            <button id="playButton" onclick="play()">Play</button>
+            <div id="playerSelect">
+                <div id="mainMenuPlayerList">
+                    <div class="mainMenuPlayerBar">
+                        <input class="playerNameInputBox" type="text" placeholder="Type Player Name Here..." value = "Bob Ross">
+                        <button class="x-button" onclick="closeElement(this.parentElement)">
+                            <image class="ximg" src = "public/imgs/close-2-icon.png" alt = "X" style="width:25px;height:25px;"></image>
+                        </button>
+                    </div>
+                </div>
+                <div class="mainMenuPlayerBar" id="addNewPlayer">
+                    <button onclick="addPlayer()">
+                        <a>Add Player</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="game_scene" display="none">
+            <div id="videoContainer">
+              <h1><a href="//webrtc.github.io/samples/" title="WebRTC samples homepage">WebRTC samples</a>
+                  <span>MediaRecorder</span></h1>
+
+              <p>For more information see the MediaStream Recording API <a
+                      href="http://w3c.github.io/mediacapture-record/MediaRecorder.html"
+                      title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
+              <video id="gum" playsinline autoplay muted></video>
+              <video id="recorded" playsinline loop></video>
+
+              <div>
+                  <button id="start">Start camera</button>
+                  <button id="record" disabled>Start Recording</button>
+                  <button id="play" disabled>Play</button>
+                  <button id="download" disabled>Download</button>
+              </div>
+
+              <div>
+                <h4>Media Stream Constraints options</h4>
+                  <p>Echo cancellation: <input type="checkbox" id="echoCancellation"></p>
+              </div>
+
+              <div>
+                  <span id="errorMsg"></span>
+              </div>
+            </div>
+            <div id="queList">
+                <ul>
+                    <li class="skillQue">Skill #1</li>
+                    <li class="skillQue">Skill #2</li>
+                    <li class="skillQue">Skill #3</li>
+                </ul>
+
+            </div>
+            <div id="tallyContainer">
+                <div class="playerProfile" id="nameProfileContainer">
+                    <img src="public/imgs/hacker-icon.svg">
+                    <a class="playerName">name</a>
+                </div>
+            </div>
+            <div id="miscContainer">
+                <!-- record new move -->
+                <!-- previous moves que list w. pics maybe -->
+            </div>
+            <div id="video_buttons">
+                <button id="record" onclick="videoButtons()"><img class="record_button" src="public/imgs/record.png"></button>
+
+                <img class="fast_fwd_button" src="public/imgs/fast_fwd.png">
+                <button id="stop" display="none"><img class="stop_button" src="public/imgs/stop.png"></button>
+            </div>
+        </div>
+        <script src="js/main.js" async></script>
+        <script src="../../../js/lib/ga.js"></script>
+    </body>
+</html>
