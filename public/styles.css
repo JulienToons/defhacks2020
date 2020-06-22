@@ -17,11 +17,20 @@ html, body{
 
 @font-face {
   font-family: "Bombing";
-  src: url("public/fonts/Bombing.ttf");
+  src: url("fonts/Bombing.ttf");
+  src: url("fonts/Bombing.ttf") format('truetype');
 }
 @font-face {
   font-family: "Cartoon3D";
-  src: url("public/fonts/From\ Cartoon\ Blocks.ttf");
+  src: url("fonts/From\ Cartoon\ Blocks.ttf");
+}
+@font-face {
+  font-family: "Caveman";
+  src: url("fonts/CAVEMAN_.TTF");
+}
+@font-face {
+  font-family: "ming";
+  src: url("fonts/Ming in Bling.ttf");
 }
 
 #main_menu{
@@ -36,7 +45,7 @@ html, body{
   text-align: center;
   position: relative;;
   display:block;
-  font-family: Bombing,Arial, Helvetica, sans-serif;
+  font-family: Bombing,ming,Caveman,Arial, Helvetica, sans-serif;
 }
 #playButton{
   box-shadow: 2.5px 6px 4px;
