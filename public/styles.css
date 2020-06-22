@@ -236,6 +236,17 @@ background-color: #123;
 #miscContainer{
   display: none;
 }
+
+#videoDirections{
+  position: absolute;
+  left:4vh;
+  top:1vh;
+  text-align: left;
+  font-size: 2.5em;
+  font-family: ming,Caveman,Bombing,Arial;
+  color:white;
+}
+
 #video_buttons {
   position:center;
   float:top;
