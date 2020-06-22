@@ -186,6 +186,7 @@ class Main{
     this.mode = null;
   }
   takeSnapShot(){
+    return 1;
     // return img
   }
   checkMatch(currentSkillIndex){
@@ -196,7 +197,7 @@ class Main{
     // get skeleton for sPic
 
     // compare skeletons
-
+    return (Math.random()*100 < 50);
     // return true if the avg joint angle difference between those of tPic & sPic is less than some elvaluator constant c
   }
 
