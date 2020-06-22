@@ -13,13 +13,10 @@
         <title>ADD ON</title>
         <link href="public/styles.css" rel="stylesheet" type="">
         <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
-        <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="../../../css/main.css">
         <link rel="stylesheet" href="css/main.css">
         <script type="text/javascript">
             console.log("This is a visual representaion of add on, a game similar to simon, played often Gymnasts");
             var pCounter = 1;
-            let game;
             // load .js files
             let sources = []; //["main","server"];
             for (let index = 0; index < sources.length; index ++) {
@@ -97,28 +94,9 @@
                 document.getElementById("game_scene").style.display = "block";
 
                 // initialize game files with list[] as a parameter
-                game = new Main(list);
-                // link buttons to game functions
-                document.getElementById("record").addEventListener('click', function(){ game.record(); game.preformRoutine(); });
-                document.getElementById("fast_fwd_button").addEventListener('click', function(){ game.tontour(); });
-                document.getElementById("stop").addEventListener('click', function(){ game.playRoutine(); }); // stop will act like play routine for now
-
-
-
-                game.start();
-
             }
 
 
-            function videoButtons(){
-                //alert("Button");
-
-                // record button disappears
-                document.getElementsByClassName("record_button")[0].style.display = "none";
-
-                // stop button appears
-                document.getElementsByClassName("stop_button")[0].style.display = "block";
-            }
         </script>
     </head>
     <body>
@@ -142,10 +120,8 @@
             </div>
         </div>
         <div id="game_scene" display="none">
-            <div id="videoDirections">
-                <a id = "directionsText">The directions will be displayed here</a>
-            </div>
             <div id="videoContainer">
+
 
               <video id="gum" playsinline autoplay muted></video>
               <video id="recorded" playsinline loop></video>
@@ -166,7 +142,7 @@
               </div>
             </div>
             <div id="queList">
-                <ul id = "queListReal">
+                <ul>
                     <li class="skillQue">Skill #1</li>
                     <li class="skillQue">Skill #2</li>
                     <li class="skillQue">Skill #3</li>
@@ -190,7 +166,6 @@
                 <button id="stop" display="none"><img class="stop_button" src="public/imgs/stop.png"></button>
             </div>
         </div>
-        <script src="js/main.js" async></script>
-        <script src="../../../js/lib/ga.js"></script>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     </body>
 </html>
